@@ -4,11 +4,11 @@ Intro to Docker
 
 Prerequisites
 =============
-- [ ] RAM ≥ 4Gb
-- [ ] Права локального админа для аккаунта участника 
-- [ ] Доступен git repo с данным руководством {{ git-repo }} `https://github.com/eugene-krivosheyev/docker`
-- [ ] Доступен {{ registry-host }} `https://hub.docker.com` (Docker Hub)
-- [ ] Зарегистрирована учетная запись {{ registry-account }} на {{ registry-host }}
+- [+] RAM ≥ 4Gb
+- [+] Права локального админа для аккаунта участника 
+- [+] Доступен git repo с данным руководством {{ git-repo }} `https://github.com/eugene-krivosheyev/docker`
+- [+] Доступен {{ registry-host }} `https://hub.docker.com` (Docker Hub)
+- [+] Зарегистрирована учетная запись {{ registry-account }} на {{ registry-host }}
 - [ ] Установлен Docker CE или совместимый менеджер контейнеров (e.g. Podman)
 ```shell
 sudo dnf install -y docker
@@ -106,16 +106,16 @@ Hands-on practice quest #00: prerequisites sound-check (15+5)
 ``` 
 
 - [ ] When участники *именуют сценарии*, выполняют команды и анализируют их вывод и поведение
-- Сценарий "Как ...?"
+- Сценарий "Как узнать текущее состояние докера, текущую конфигурацию?"
 ```shell
 docker version # TODO: собственные пометки участников для будущего использования в проектах
 docker system info
 docker system df
 
-docker events
+docker events --## runtime events
 ```
 
-- Сценарий "Как ...?"
+- Сценарий "Как авторизоваться через bash по токену?"
 (в новом ssh shell, чтобы параллельно видеть вывод `docker events`)
 ```shell
 docker logout
@@ -123,13 +123,13 @@ open https://hub.docker.com/settings/security # to make Access Token
 docker login -u {{ registry-account }} -p {{ access-token }} # login default hub.docker.com registry
 ```
 
-- Сценарий "Как ...?"
+- Сценарий "Как скачать нвоый образ и посмотреть сколько докер занимает места на жестком диске?"
 ```shell
 docker image pull alpine
 docker system df
 ````
 
-- Сценарий "Как ...?"
+- Сценарий "Как запустить образ на хосте и выполнить команды внутри него?"
 ```shell
 docker container ls [--all]
 docker container run --name demo -it alpine
@@ -137,7 +137,7 @@ docker container run --name demo -it alpine
 /# exit 
 ```
 
-- Сценарий "Как ...?"
+- Сценарий "Как "убить" запущенный контейнер?"
 ```shell
 docker container ls [--all]
 docker container rm [--force] demo
